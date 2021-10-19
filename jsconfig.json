@@ -1,0 +1,22 @@
+{
+  "include": ["src/**/*.ts", "src/**/*.js"],
+  "exclude": ["node_modules/*"],
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "baseUrl": "./",
+    "paths": {
+      "api/*": ["src/api/*"],
+      "mobxStore/*": ["src/store/mobxStore/*"],
+      "reduxStore/*": ["src/store/reduxStore/*"],
+      "reduxToolkitStore/*": ["src/store/reduxToolkitStore/*"],
+      "recoilStore/*": ["src/store/recoilStore/*"],
+      "components/*": ["src/components/*"],
+      "pages/*": ["src/pages/*"],
+      "router/*": ["src/router/*"],
+      "assets/*": ["src/assets/*"],
+      "utils/*": ["src/shared/utils/*"],
+      "styles/*": ["src/shared/styles/*"]
+    }
+  }
+}

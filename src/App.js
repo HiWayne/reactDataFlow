@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider as MobxProvider } from "mobx-react";
+import { Provider as ReduxProvider } from "react-redux";
+import Router from "router";
+import mobxStores from "mobxStore";
+import reduxStore from "reduxStore";
+import { RecoilRoot } from "recoil";
+import reduxToolkit from "reduxToolkitStore/";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MobxProvider {...mobxStores}>
+      <ReduxProvider store={reduxStore}>
+        <ReduxProvider store={reduxToolkit}>
+          <RecoilRoot>
+            <div className="text-base">
+              <Router />
+            </div>
+          </RecoilRoot>
+        </ReduxProvider>
+      </ReduxProvider>
+    </MobxProvider>
   );
 }
 
