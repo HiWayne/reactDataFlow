@@ -26,7 +26,9 @@
     "build": "node ./config/checkver.js && react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
-    "preinstall": "node ./config/checkver.js"
+    "preinstall": "node ./config/checkver.js",
+    "postinstall": "husky install",
+    "lint-staged": "lint-staged"
   },
   "eslintConfig": {
     "extends": [
@@ -51,11 +53,13 @@
     "autoprefixer": "^9.8.8",
     "chalk": "^4.1.2",
     "customize-cra": "^1.0.0",
-    "eslint": "^8.0.1",
+    "eslint": "^7.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
     "nodemon": "^2.0.13",
     "postcss": "^7.0.39",
+    "prettier": "^2.4.1",
     "react-app-rewired": "^2.1.8",
     "semver": "^7.3.5",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16",
@@ -64,13 +68,13 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.js": [
+    "*.{js, jsx, css, less, sass, scss, styl, json}": [
+      "prettier --write",
+      "eslint"
+    ],
+    "*.{ts, tsx}?": [
+      "prettier --parser=typescript --write",
       "eslint"
     ]
   }

@@ -1,4 +1,4 @@
-import mainSaga from "./main";
+import mainSaga from './main';
 
 const sagas = [mainSaga];
 
