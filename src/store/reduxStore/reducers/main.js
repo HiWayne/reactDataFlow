@@ -1,9 +1,9 @@
-import * as Types from "reduxStore/actionTypes";
+import * as Types from 'reduxStore/actionTypes';
 
-const initialTitle = "redux";
+const initialTitle = 'redux';
 
 const initialDesc =
-  "redux是一个基于flux的数据流管理库，数据不可变，通过action定义一个数据更新的声明，dispatch后由reducer根据不同的type分发给期望的区域更新数据，期间的更新数据必须是新的引用。通过react-redux，可作为react等视图框架的状态管理库。";
+  'redux是一个基于flux的数据流管理库，数据不可变，通过action定义一个数据更新的声明，dispatch后由reducer根据不同的type分发给期望的区域更新数据，期间的更新数据必须是新的引用。通过react-redux，可作为react等视图框架的状态管理库。';
 
 const initailState = {
   title: initialTitle,
@@ -29,18 +29,14 @@ const mainReducer = (state = initailState, action) => {
         title: data,
       };
     case Types.MAIN_SET_DESC_TYPE:
-      if (typeof data === "string") {
+      if (typeof data === 'string') {
         return {
           ...state,
           desc: data,
-          derivedFromDesc: "字数" + data.length,
+          derivedFromDesc: '字数' + data.length,
         };
       } else {
-        console.error(
-          `require type is string but got ${typeof data}, in ActionType: ${
-            Types.MAIN_SET_DESC_TYPE
-          }`
-        );
+        console.error(`require type is string but got ${typeof data}, in ActionType: ${Types.MAIN_SET_DESC_TYPE}`);
         return state;
       }
     case Types.MAIN_FETCH_SUBMIT_START_TYPE:
@@ -93,15 +89,15 @@ const mainReducer = (state = initailState, action) => {
         ...state,
         history: newHistory,
         currentIndex,
-        title: newHistory[currentIndex]?.title || "",
-        desc: newHistory[currentIndex]?.desc || "",
+        title: newHistory[currentIndex]?.title || '',
+        desc: newHistory[currentIndex]?.desc || '',
       };
     case Types.MAIN_SELECT_TYPE:
-      if (typeof data !== "number") {
+      if (typeof data !== 'number') {
         console.error(
           `actionType '${
             Types.MAIN_SELECT_TYPE
-          }' in mainReducer require type of action.data is number, but got ${typeof data}`
+          }' in mainReducer require type of action.data is number, but got ${typeof data}`,
         );
         return state;
       }

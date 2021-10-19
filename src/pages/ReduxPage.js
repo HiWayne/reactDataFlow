@@ -1,9 +1,9 @@
-import { useMemo } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { createSelector } from "@reduxjs/toolkit";
-import * as mainActionCreators from "reduxStore/actions/main";
-import Content from "components/Content";
+import { useMemo } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { createSelector } from '@reduxjs/toolkit';
+import * as mainActionCreators from 'reduxStore/actions/main';
+import Content from 'components/Content';
 
 const ReduxPage = ({
   title,
@@ -53,7 +53,7 @@ const ReduxPage = ({
       query,
       remove,
       select,
-    ]
+    ],
   );
   return <Content data={data} />;
 };
@@ -62,24 +62,20 @@ const getTitle = (state) => state.main.title;
 const getDesc = (state) => state.main.desc;
 
 const _getDerivedFromTitle = (title) => {
-  if (typeof title === "string") {
-    return "字数" + title.length;
+  if (typeof title === 'string') {
+    return '字数' + title.length;
   } else {
-    console.error(
-      `_getDerivedFromTitle require type is string but got ${typeof title}`
-    );
-    return "";
+    console.error(`_getDerivedFromTitle require type is string but got ${typeof title}`);
+    return '';
   }
 };
 
 const _getDerivedFromDesc = (desc) => {
-  if (typeof desc === "string") {
-    return "字数" + desc.length;
+  if (typeof desc === 'string') {
+    return '字数' + desc.length;
   } else {
-    console.error(
-      `_getDerivedFromDesc require type is string but got ${typeof desc}`
-    );
-    return "";
+    console.error(`_getDerivedFromDesc require type is string but got ${typeof desc}`);
+    return '';
   }
 };
 

@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
 // 函数式编程，函数柯里化
 const createDelay =
@@ -8,53 +8,53 @@ const createDelay =
       _import.then((data) =>
         setTimeout(() => {
           resolve(data);
-        }, mills)
-      )
+        }, mills),
+      ),
     );
 
 // 让import延迟1000ms返回，方便观察loading状态
 const delay = createDelay(1000);
 
-const IndexPage = lazy(() => delay(import("pages/IndexPage")));
-const MobxPage = lazy(() => delay(import("pages/MobxPage")));
-const ReduxPage = lazy(() => delay(import("pages/ReduxPage")));
-const ReduxToolkitPage = lazy(() => delay(import("pages/ReduxToolkitPage")));
-const RecoilPage = lazy(() => delay(import("pages/RecoilPage")));
+const IndexPage = lazy(() => delay(import('pages/IndexPage')));
+const MobxPage = lazy(() => delay(import('pages/MobxPage')));
+const ReduxPage = lazy(() => delay(import('pages/ReduxPage')));
+const ReduxToolkitPage = lazy(() => delay(import('pages/ReduxToolkitPage')));
+const RecoilPage = lazy(() => delay(import('pages/RecoilPage')));
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     component: IndexPage,
     meta: {
-      title: "首页",
+      title: '首页',
     },
   },
   {
-    path: "/mobx",
+    path: '/mobx',
     component: MobxPage,
     meta: {
-      title: "mobx",
+      title: 'mobx',
     },
   },
   {
-    path: "/redux",
+    path: '/redux',
     component: ReduxPage,
     meta: {
-      title: "redux",
+      title: 'redux',
     },
   },
   {
-    path: "/toolkit",
+    path: '/toolkit',
     component: ReduxToolkitPage,
     meta: {
-      title: "redux-toolkit",
+      title: 'redux-toolkit',
     },
   },
   {
-    path: "/recoil",
+    path: '/recoil',
     component: RecoilPage,
     meta: {
-      title: "recoil",
+      title: 'recoil',
     },
   },
 ];

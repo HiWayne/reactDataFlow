@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { observer, inject } from "mobx-react";
-import History from "components/History";
+import { useEffect } from 'react';
+import { observer, inject } from 'mobx-react';
+import History from 'components/History';
 
 const Content = ({ data }) => {
   const {
@@ -30,7 +30,7 @@ const Content = ({ data }) => {
 
   useEffect(() => {
     query();
-  }, []);
+  }, [query]);
 
   return (
     <div className="p-1 flex justify-around items-center">
@@ -51,7 +51,7 @@ const Content = ({ data }) => {
           <label>修改描述：</label>
           <textarea
             className="border"
-            style={{ marginTop: "20px", width: "300px", height: "100px" }}
+            style={{ marginTop: '20px', width: '300px', height: '100px' }}
             value={desc}
             onChange={handleDescInput}
           />
@@ -60,12 +60,10 @@ const Content = ({ data }) => {
           <button
             disabled={submitLoading}
             className={`
-          px-0.5 rounded-full text-white ${
-            submitLoading ? "bg-gray-300" : "bg-blue-400"
-          }`}
+          px-0.5 rounded-full text-white ${submitLoading ? 'bg-gray-300' : 'bg-blue-400'}`}
             onClick={submit}
           >
-            {submitLoading ? "保存中..." : "保存"}
+            {submitLoading ? '保存中...' : '保存'}
           </button>
         </div>
       </div>
@@ -76,10 +74,10 @@ const Content = ({ data }) => {
         currentIndex={currentIndex}
         loading={queryLoading}
         title="历史记录"
-        style={{ width: "2.5rem", height: "3rem" }}
+        style={{ width: '2.5rem', height: '3rem' }}
       />
     </div>
   );
 };
 
-export default inject("main")(observer(Content));
+export default inject('main')(observer(Content));

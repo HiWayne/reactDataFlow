@@ -1,9 +1,9 @@
-import { call, put, takeEvery, takeLatest, select } from "redux-saga/effects";
-import { fetchSubmit, fetchQuery, fetchDelete } from "api/main";
-import * as Types from "reduxStore/actionTypes";
-import dayjs from "dayjs";
+import { call, put, takeLatest, select } from 'redux-saga/effects';
+import { fetchSubmit, fetchQuery, fetchDelete } from 'api/main';
+import * as Types from 'reduxStore/actionTypes';
+import dayjs from 'dayjs';
 
-const REDUX = "redux";
+const REDUX = 'redux';
 
 function* submit() {
   try {
@@ -11,7 +11,7 @@ function* submit() {
     const params = {
       title,
       desc,
-      createTime: dayjs(new Date().getTime()).format("YYYY-MM-DD HH:mm:ss"),
+      createTime: dayjs(new Date().getTime()).format('YYYY-MM-DD HH:mm:ss'),
     };
     yield put({ type: Types.MAIN_FETCH_SUBMIT_START_TYPE });
     const data = yield call(() => fetchSubmit(params, REDUX));

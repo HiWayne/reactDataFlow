@@ -1,10 +1,10 @@
-import { Provider as MobxProvider } from "mobx-react";
-import { Provider as ReduxProvider } from "react-redux";
-import Router from "router";
-import mobxStores from "mobxStore";
-import reduxStore from "reduxStore";
-import { RecoilRoot } from "recoil";
-import reduxToolkit from "reduxToolkitStore/";
+import { Provider as MobxProvider } from 'mobx-react';
+import { Provider as ReduxProvider } from 'react-redux';
+import Router from 'router';
+import mobxStores from 'mobxStore';
+import reduxStore from 'reduxStore';
+import { RecoilRoot } from 'recoil';
+import reduxToolkit from 'reduxToolkitStore/';
 
 function App() {
   return (

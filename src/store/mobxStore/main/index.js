@@ -1,13 +1,7 @@
-import { fetchSubmit, fetchDelete, fetchQuery } from "api/main";
-import {
-  makeAutoObservable,
-  reaction,
-  observable,
-  action,
-  computed,
-} from "mobx";
+import { fetchSubmit, fetchDelete, fetchQuery } from 'api/main';
+import { makeAutoObservable, reaction, observable, action, computed } from 'mobx';
 
-const MOBX = "mobx";
+const MOBX = 'mobx';
 
 class Main {
   constructor() {
@@ -30,10 +24,9 @@ class Main {
     });
   }
 
-  title = "mobx";
+  title = 'mobx';
 
-  desc =
-    "mobx是一个通过监听数据改变来触发订阅的数据流管理库。通过mobx-react，可作为react等视图框架的状态管理库";
+  desc = 'mobx是一个通过监听数据改变来触发订阅的数据流管理库。通过mobx-react，可作为react等视图框架的状态管理库';
 
   submitLoading = false;
 
@@ -64,11 +57,11 @@ class Main {
   };
 
   deleteHistory = (history) => {
-    if (typeof history === "number") {
+    if (typeof history === 'number') {
       this.history.splice(history, 1);
     } else {
       const index = this.history.findIndex((data) => data === history);
-      if (typeof index === "number") {
+      if (typeof index === 'number') {
         this.history.splice(index, 1);
       }
     }
@@ -76,25 +69,21 @@ class Main {
 
   // 由title计算而来的状态
   get derivedFromTitle() {
-    if (typeof this.title === "string") {
-      return "字数" + this.title.length;
+    if (typeof this.title === 'string') {
+      return '字数' + this.title.length;
     } else {
-      console.error(
-        `derivedFromTitle require type is string but got ${typeof this.title}`
-      );
-      return "";
+      console.error(`derivedFromTitle require type is string but got ${typeof this.title}`);
+      return '';
     }
   }
 
   // 由desc计算而来的状态
   get derivedFromDesc() {
-    if (typeof this.desc === "string") {
-      return "字数" + this.desc.length;
+    if (typeof this.desc === 'string') {
+      return '字数' + this.desc.length;
     } else {
-      console.error(
-        `derivedFromDesc require type is string but got ${typeof this.desc}`
-      );
-      return "";
+      console.error(`derivedFromDesc require type is string but got ${typeof this.desc}`);
+      return '';
     }
   }
 
@@ -112,7 +101,7 @@ class Main {
             this.currentIndex = this.history.length;
             this.addHistory(params);
           }
-        })
+        }),
       )
       .finally(() => {
         this.setSubmitLoading(false);
@@ -140,13 +129,13 @@ class Main {
               this.currentIndex--;
             }
           }
-        })
+        }),
       )
       .finally(() => {});
   };
 
   select = (index) => {
-    if (typeof index === "number") {
+    if (typeof index === 'number') {
       this.currentIndex = index;
     }
   };
@@ -157,12 +146,12 @@ class Main {
       .then(
         action((history) => {
           this.setHistory(history);
-        })
+        }),
       )
       .catch(
         action(() => {
           this.setHistory([]);
-        })
+        }),
       )
       .finally(() => {
         this.setQueryLoading(false);
@@ -184,8 +173,8 @@ class Main {
   };
 
   clearData = () => {
-    this.setTitle("");
-    this.setDesc("");
+    this.setTitle('');
+    this.setDesc('');
   };
 }
 
@@ -195,7 +184,7 @@ reaction(
   () => main.currentIndex,
   (index) => {
     main.updateData(index);
-  }
+  },
 );
 
 export default main;

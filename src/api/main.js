@@ -7,10 +7,7 @@ export const fetchSubmit = (params, namespace) =>
         try {
           const data = JSON.parse(dataString);
           data.push(params);
-          window.localStorage.setItem(
-            `${namespace}-store`,
-            JSON.stringify(data)
-          );
+          window.localStorage.setItem(`${namespace}-store`, JSON.stringify(data));
         } catch {
           reject(false);
         }
@@ -30,12 +27,9 @@ export const fetchDelete = (params, namespace) =>
         try {
           const data = JSON.parse(dataString);
           const { index } = params;
-          if (typeof index === "number") {
+          if (typeof index === 'number') {
             data.splice(index, 1);
-            window.localStorage.setItem(
-              `${namespace}-store`,
-              JSON.stringify(data)
-            );
+            window.localStorage.setItem(`${namespace}-store`, JSON.stringify(data));
           } else {
             reject(false);
           }

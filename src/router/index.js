@@ -1,7 +1,7 @@
-import { Suspense } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import routes from "./routes";
-import Loading from "components/Loading";
+import { Suspense } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import routes from './routes';
+import Loading from 'components/Loading';
 
 const renderRoutes = (routes) => {
   if (Array.isArray(routes)) {
@@ -11,8 +11,8 @@ const renderRoutes = (routes) => {
           if (Array.isArray(route.children) && route.children.length >= 0) {
             return (
               <Route
-                exact={route.path === "/"}
-                key={route.path + route.meta.title || ""}
+                exact={route.path === '/'}
+                key={route.path + route.meta.title || ''}
                 path={route.path}
                 component={route.component}
                 children={renderRoutes(route.children)}
@@ -21,8 +21,8 @@ const renderRoutes = (routes) => {
           } else {
             return (
               <Route
-                exact={route.path === "/"}
-                key={route.path + route.meta.title || ""}
+                exact={route.path === '/'}
+                key={route.path + route.meta.title || ''}
                 path={route.path}
                 component={route.component}
               />

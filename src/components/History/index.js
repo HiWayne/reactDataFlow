@@ -1,17 +1,9 @@
-import dayjs from "dayjs";
-import deleteIcon from "assets/icons/delete.png";
-import Loading from "components/Loading";
-import * as Styles from "styles/index";
+import dayjs from 'dayjs';
+import deleteIcon from 'assets/icons/delete.png';
+import Loading from 'components/Loading';
+import * as Styles from 'styles/index';
 
-const History = ({
-  data,
-  handleDelete,
-  handleSelect,
-  currentIndex,
-  title,
-  loading,
-  ...props
-}) => {
+const History = ({ data, handleDelete, handleSelect, currentIndex, title, loading, ...props }) => {
   if (Array.isArray(data)) {
     return (
       <ul
@@ -26,15 +18,11 @@ const History = ({
             {data.map((item, index) => (
               <li
                 key={item.createTime}
-                className={`group p-0.5 ${
-                  index === currentIndex ? "animate-blue-twinkling" : "shadow"
-                } ${
-                  index === currentIndex ? "" : Styles.hoverShadow
-                } bg-white rounded-sm cursor-pointer select-none relative ${
-                  Styles.transition
-                } my-0.5 px-0.5`}
+                className={`group p-0.5 ${index === currentIndex ? 'animate-blue-twinkling' : 'shadow'} ${
+                  index === currentIndex ? '' : Styles.hoverShadow
+                } bg-white rounded-sm cursor-pointer select-none relative ${Styles.transition} my-0.5 px-0.5`}
                 onClick={() => {
-                  if (typeof handleSelect === "function") {
+                  if (typeof handleSelect === 'function') {
                     handleSelect(index);
                   }
                 }}
@@ -44,25 +32,20 @@ const History = ({
                   style={{ backgroundImage: `url(${deleteIcon})` }}
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (typeof handleDelete === "function") {
+                    if (typeof handleDelete === 'function') {
                       handleDelete(index);
                     }
                   }}
                 ></span>
-                <h5>
-                  创建时间:{" "}
-                  {dayjs(item.createTime).format("YYYY-MM-DD HH:mm:ss")}
-                </h5>
-                <p className="whitespace-nowrap overflow-hidden overflow-ellipsis">
-                  标题: {item.title}
-                </p>
+                <h5>创建时间: {dayjs(item.createTime).format('YYYY-MM-DD HH:mm:ss')}</h5>
+                <p className="whitespace-nowrap overflow-hidden overflow-ellipsis">标题: {item.title}</p>
                 <p
                   style={{
-                    display: "-webkit-box",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    wordBreak: "break-all",
-                    WebkitBoxOrient: "vertical",
+                    display: '-webkit-box',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    wordBreak: 'break-all',
+                    WebkitBoxOrient: 'vertical',
                     WebkitLineClamp: 2,
                   }}
                 >

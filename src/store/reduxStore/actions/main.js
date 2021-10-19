@@ -1,4 +1,4 @@
-import * as Types from "reduxStore/actionTypes";
+import * as Types from 'reduxStore/actionTypes';
 
 export const setTitle = (newTitle) => ({
   type: Types.MAIN_SET_TITLE_TYPE,

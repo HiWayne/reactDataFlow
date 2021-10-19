@@ -1,5 +1,5 @@
-import { observer, inject } from "mobx-react";
-import Content from "components/Content";
+import { observer, inject } from 'mobx-react';
+import Content from 'components/Content';
 
 const MobxPage = ({ main }) => {
   const data = {
@@ -21,4 +21,4 @@ const MobxPage = ({ main }) => {
   return <Content data={data} />;
 };
 
-export default inject("main")(observer(MobxPage));
+export default inject('main')(observer(MobxPage));

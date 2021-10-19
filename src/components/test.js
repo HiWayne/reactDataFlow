@@ -21,7 +21,7 @@ class TimeManager {
   }
   // 消费时间的方法，每调用一次相当于时间度过1个月
   consumeTime(time) {
-    if (this.remainingTime > 0 && typeof time === "number") {
+    if (this.remainingTime > 0 && typeof time === 'number') {
       this.currentMonths += time;
       this.remainingTime -= time;
     } else {
@@ -42,8 +42,8 @@ class Chicken {
   hasCreatedEggsCount = 0;
   // 入参：出生月份
   constructor(birthday) {
-    if (typeof birthday !== "number") {
-      throw new Error("小鸡必须有生日");
+    if (typeof birthday !== 'number') {
+      throw new Error('小鸡必须有生日');
     }
     this.birthday = birthday;
     this.lastCreateEggTime = birthday;
@@ -51,10 +51,7 @@ class Chicken {
   // 小鸡下蛋
   createEgg(birthday) {
     // 当前时间比上次下蛋时间过去1个月即可下蛋
-    if (
-      timeManager.currentMonths - this.lastCreateEggTime ===
-      this.createEggTime
-    ) {
+    if (timeManager.currentMonths - this.lastCreateEggTime === this.createEggTime) {
       allEggs.push(new Egg(birthday));
       this.lastCreateEggTime = timeManager.currentMonths;
       this.hasCreatedEggsCount++;
@@ -69,8 +66,8 @@ class Egg {
   createChickenTime = 3;
   // 入参：下蛋月份
   constructor(birthday) {
-    if (typeof birthday !== "number") {
-      throw new Error("鸡蛋必须有生日");
+    if (typeof birthday !== 'number') {
+      throw new Error('鸡蛋必须有生日');
     }
     this.birthday = birthday;
   }
@@ -114,6 +111,6 @@ while (timeManager.remainingTime > 0) {
 
 console.log(allChicken);
 console.log(`${TIME_LIMIT}个月后总共有小鸡${allChicken.length}只`);
-console.log("--------------------");
+console.log('--------------------');
 console.log(allEggs);
 console.log(`${TIME_LIMIT}个月后还剩下${allEggs.length}个蛋来不及孵化`);

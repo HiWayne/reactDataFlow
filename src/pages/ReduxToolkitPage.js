@@ -1,13 +1,6 @@
-import { useSelector, useDispatch } from "react-redux";
-import {
-  setTitle,
-  setDesc,
-  submit,
-  query,
-  select,
-  remove,
-} from "reduxToolkitStore/mainSlice";
-import Content from "components/Content";
+import { useSelector, useDispatch } from 'react-redux';
+import { setTitle, setDesc, submit, query, select, remove } from 'reduxToolkitStore/mainSlice';
+import Content from 'components/Content';
 
 const ReduxToolkitPage = () => {
   const title = useSelector((state) => state.main.title);
