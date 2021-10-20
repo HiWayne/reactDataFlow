@@ -59,10 +59,12 @@ class Main {
   deleteHistory = (history) => {
     if (typeof history === 'number') {
       this.history.splice(history, 1);
+      this.history = [...this.history];
     } else {
       const index = this.history.findIndex((data) => data === history);
       if (typeof index === 'number') {
         this.history.splice(index, 1);
+        this.history = [...this.history];
       }
     }
   };
@@ -167,8 +169,6 @@ class Main {
     if (data) {
       this.setTitle(data.title);
       this.setDesc(data.desc);
-    } else {
-      this.clearData();
     }
   };
 

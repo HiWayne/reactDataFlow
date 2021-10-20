@@ -60,24 +60,24 @@ const RecoilPage = () => {
           if (currentIndex === history.length - 1) {
             const newCurrentIndex = currentIndex === 0 ? null : currentIndex - 1;
             setCurrentIndex(newCurrentIndex);
-            const { title = '', desc = '' } = newHistory[newCurrentIndex] || {};
-            setTitle(title);
-            setDesc(desc);
+            const { _title = title, _desc = desc } = newHistory[newCurrentIndex] || {};
+            setTitle(_title);
+            setDesc(_desc);
           } else {
-            const { title = '', desc = '' } = newHistory[currentIndex] || {};
-            setTitle(title);
-            setDesc(desc);
+            const { _title = title, _desc = desc } = newHistory[currentIndex] || {};
+            setTitle(_title);
+            setDesc(_desc);
           }
         } else if (index < currentIndex) {
           const newCurrentIndex = currentIndex - 1;
           setCurrentIndex(newCurrentIndex);
-          const { title = '', desc = '' } = newHistory[newCurrentIndex] || {};
-          setTitle(title);
-          setDesc(desc);
+          const { _title = title, _desc = desc } = newHistory[newCurrentIndex] || {};
+          setTitle(_title);
+          setDesc(_desc);
         }
       }
     },
-    [history, currentIndex, setCurrentIndex, setTitle, setDesc, setHistory],
+    [title, desc, history, currentIndex, setCurrentIndex, setTitle, setDesc, setHistory],
   );
 
   const select = useCallback(

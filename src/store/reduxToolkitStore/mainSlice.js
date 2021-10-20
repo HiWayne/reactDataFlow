@@ -32,11 +32,11 @@ export const remove = createAsyncThunk('main/remove', async (index, { dispatch, 
   const params = { index };
   const result = await fetchDelete(params, REDUX_TOOLKIT);
   if (result) {
-    const { currentIndex, history } = getState().main;
+    const { currentIndex, history, title, desc } = getState().main;
     if (index === currentIndex) {
       if (currentIndex === history.length - 1) {
         const index = currentIndex === 0 ? null : currentIndex - 1;
-        const data = history[index] || { title: '', desc: '' };
+        const data = history[index] || { title, desc };
         dispatch({
           type: 'main/setCurrentIndex',
           payload: index,
@@ -51,7 +51,7 @@ export const remove = createAsyncThunk('main/remove', async (index, { dispatch, 
         });
       } else {
         const index = currentIndex + 1;
-        const data = history[index] || { title: '', desc: '' };
+        const data = history[index] || { title, desc };
         dispatch({
           type: 'main/setTitle',
           payload: data.title,

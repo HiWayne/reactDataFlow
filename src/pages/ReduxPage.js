@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux6';
 import { bindActionCreators } from 'redux';
 import { createSelector } from '@reduxjs/toolkit';
 import * as mainActionCreators from 'reduxStore/actions/main';

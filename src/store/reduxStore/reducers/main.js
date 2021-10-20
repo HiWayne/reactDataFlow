@@ -89,8 +89,8 @@ const mainReducer = (state = initailState, action) => {
         ...state,
         history: newHistory,
         currentIndex,
-        title: newHistory[currentIndex]?.title || '',
-        desc: newHistory[currentIndex]?.desc || '',
+        title: newHistory[currentIndex]?.title || state.title,
+        desc: newHistory[currentIndex]?.desc || state.desc,
       };
     case Types.MAIN_SELECT_TYPE:
       if (typeof data !== 'number') {

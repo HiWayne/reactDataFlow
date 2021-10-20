@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux7';
 import { setTitle, setDesc, submit, query, select, remove } from 'reduxToolkitStore/mainSlice';
 import Content from 'components/Content';
 

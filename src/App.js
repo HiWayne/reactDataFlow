@@ -1,5 +1,6 @@
 import { Provider as MobxProvider } from 'mobx-react';
-import { Provider as ReduxProvider } from 'react-redux';
+import { Provider as ReduxProvider } from 'react-redux6';
+import { Provider as ReduxToolkitProvider } from 'react-redux7';
 import Router from 'router';
 import mobxStores from 'mobxStore';
 import reduxStore from 'reduxStore';
@@ -10,13 +11,13 @@ function App() {
   return (
     <MobxProvider {...mobxStores}>
       <ReduxProvider store={reduxStore}>
-        <ReduxProvider store={reduxToolkit}>
+        <ReduxToolkitProvider store={reduxToolkit}>
           <RecoilRoot>
             <div className="text-base">
               <Router />
             </div>
           </RecoilRoot>
-        </ReduxProvider>
+        </ReduxToolkitProvider>
       </ReduxProvider>
     </MobxProvider>
   );
